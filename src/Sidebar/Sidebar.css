@@ -1,0 +1,12 @@
+.sidebar {
+  color: white;
+  /* border: 1px solid #ff0066; */
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+  height: 100px;
+}
+
+.story-text {
+  font-size: 29px;
+}

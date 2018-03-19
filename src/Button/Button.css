@@ -1,0 +1,20 @@
+.button-container {
+  position: relative;
+  z-index: 20;
+}
+
+
+#category-button {
+  color: var(--button-text-color);
+  background-color: var(--main-light-red);
+  border-radius: 5px;
+  border-color: var(--main-yellow);
+  font-size: 20px;
+  padding: 5px 10px;
+  z-index: 20;
+}
+
+#category-button:hover {
+  color: var(--main-yellow);
+  background-color: var(--main-dark-red);
+}

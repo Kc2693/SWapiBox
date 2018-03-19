@@ -1,28 +1,51 @@
-.App {
-  text-align: center;
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+:root {
+    --main-yellow: #E58E58;
+    --main-light-red: #9d323b;
+    --main-dark-red: #6E233A;
+    --button-text-color: white;
+}
+.App-container {
+  height: 100vh;
+  width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.Background {
+  background: url(https://orig00.deviantart.net/9fb6/f/2015/334/2/7/shooting_stars2_by_kirokaze-d9ikcm1.gif) no-repeat;
+  background-position: 50% 0;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -10;
+}
+.Background:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.Foreground {
+  height: 100%;
+  position: relative;
+  z-index: 1;
 }
-
-.App-title {
-  font-size: 1.5em;
+.main-title {
+  color: var(--main-yellow);
+  font-family: 'Audiowide', cursive;
+  font-size: 50px;
+  margin: auto;
+  width: 280px;
+  z-index: 10;
 }
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  margin: 50px auto;
 }
