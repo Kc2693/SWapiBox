@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import './Button.css';
 
 class Button extends Component {
-  constructor (props) {
-    super(props);
-  }
+
   buttonClicker = (event) => {
     this.props.controlFunc(event.target.name)
   }

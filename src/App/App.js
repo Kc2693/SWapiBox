@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Sidebar from '../Sidebar/Sidebar';
+import ScrollText from '../ScrollText/ScrollText';
 import Button from '../Button/Button';
 import CategoryButtonContainer from '../categoryButtonContainer/categoryButtonContainer'
 import InfoContainer from '../InfoContainer/InfoContainer';
+import { fetchFilmTexts } from '../API/helper';
 
 class App extends Component {
   constructor (props) {
@@ -11,10 +12,20 @@ class App extends Component {
     this.state = {
       categories: {'people': false, 'planets': false, 'vehicles': false},
       favorites: [],
+      scrollText: []
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    if (!localStorage) {
+      const scrollText = await fetchFilmTexts().then(text => localStorage.setItem('filmText', JSON.stringify(text)))
+    }
+    this.fillScrollText()
+  }
+
+  fillScrollText() {
+    const scrollText = JSON.parse(localStorage.getItem('filmText'))
+    this.setState({scrollText})
   }
 
   showFavorites = () => {
@@ -58,8 +69,9 @@ class App extends Component {
         <h1 className="main-title">SWapiBox</h1>
         <Button controlFunc={this.showFavorites} name={'Favorites '} id={'faves'} faveNum={this.state.favorites.length}/>
         <CategoryButtonContainer categories={Object.keys(this.state.categories)}
-                                 controlFunc={this.selectCategory} />
-        <Sidebar />
+                                 controlFunc={this.selectCategory}
+        />
+      {this.state.scrollText.length > 1 && <ScrollText films={this.state.scrollText}/>}
         {this.displayInfoContainer()}
 
       </div>
