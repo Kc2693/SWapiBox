@@ -5,14 +5,16 @@ class Button extends Component {
   constructor (props) {
     super(props);
   }
-  buttonClicker = () => {
-    console.log('hello')
+  buttonClicker = (event) => {
+    this.props.controlFunc(event.target.name)
   }
 
   render () {
     return (
-      <div className="button-container">
-        <button id="category-button" onClick={this.buttonClicker}>{this.props.title}</button>
+      <div>
+        <button name={this.props.name}
+                id={this.props.id}
+                onClick={this.buttonClicker}>{this.props.name}{this.props.faveNum}</button>
       </div>
     )
   }
