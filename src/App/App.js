@@ -4,7 +4,7 @@ import ScrollText from '../ScrollText/ScrollText';
 import Button from '../Button/Button';
 import CategoryButtonContainer from '../categoryButtonContainer/categoryButtonContainer'
 import InfoContainer from '../InfoContainer/InfoContainer';
-import { fetchFilmTexts } from '../API/helper';
+import { fetchFilmTexts, fetchPeopleInfo } from '../API/helper';
 
 class App extends Component {
   constructor (props) {
@@ -18,7 +18,7 @@ class App extends Component {
 
   async componentDidMount() {
     if (!localStorage) {
-      const scrollText = await fetchFilmTexts().then(text => localStorage.setItem('filmText', JSON.stringify(text)))
+      await fetchFilmTexts().then(text => localStorage.setItem('filmText', JSON.stringify(text)))
     }
     this.fillScrollText()
   }
@@ -28,9 +28,6 @@ class App extends Component {
     this.setState({scrollText})
   }
 
-  showFavorites = () => {
-    console.log('hello!')
-  }
   selectCategory = (category) => {
     let categoryKeys = Object.keys(this.state.categories)
 
@@ -61,6 +58,16 @@ class App extends Component {
     }, [])
   }
 
+  showFavorites = () => {
+    console.log('hello!')
+  }
+
+  showPeople = async () => {
+    const peoples = await fetchPeopleInfo()
+
+    console.log(peoples)
+  }
+
   render() {
     return (
       <div className="App-container">
@@ -70,6 +77,7 @@ class App extends Component {
         <Button controlFunc={this.showFavorites} name={'Favorites '} id={'faves'} faveNum={this.state.favorites.length}/>
         <CategoryButtonContainer categories={Object.keys(this.state.categories)}
                                  controlFunc={this.selectCategory}
+                                 secondFunc={this.showPeople}
         />
       {this.state.scrollText.length > 1 && <ScrollText films={this.state.scrollText}/>}
         {this.displayInfoContainer()}

@@ -13,6 +13,10 @@
   color: var(--main-yellow);
   background-color: var(--main-dark-red);
 }
+#category-button:active {
+  color: var(--main-yellow);
+  background-color: var(--main-dark-red);
+}
 
 #faves {
   font-size: 24px;
