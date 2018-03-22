@@ -5,7 +5,7 @@ class Button extends Component {
 
   buttonClicker = (event) => {
     this.props.controlFunc(event.target.name)
-    this.props.secondFunc()
+    this.props.fetchFunc(event.target.name)
   }
 
   render () {

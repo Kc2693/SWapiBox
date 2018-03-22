@@ -6,7 +6,7 @@ const categoryButtonContainer = (props) => {
 
   const categoryButtons = props.categories.map((category, index) => (
     <Button controlFunc={props.controlFunc}
-            secondFunc={props.secondFunc}
+            fetchFunc={props.fetchFunc}
             name={category}
             id={'category-button'}
             key={index}/>))

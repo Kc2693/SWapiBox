@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './scroll-text.css';
 
-class Sidebar extends Component {
+class ScrollText extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,4 +28,4 @@ class Sidebar extends Component {
 }
 
 
-export default Sidebar;
+export default ScrollText;

@@ -11,17 +11,13 @@ async function fetchFilmTexts() {
 }
 
 async function fetchPeopleInfo() {
-// homeworld - fetch link
-// species - fetch link
-// language - fetch from species
-// population - fetch from planets
   const initialFetch = await fetch(`${root}${people}`)
   const response = await initialFetch.json()
 
   const peopleWithHomes = await fetchHomeworld(response.results)
   const speciesAndLang = await fetchSpecies(response.results)
 
-  const finishedProduct = completeHumanBean(response.results, peopleWithHomes, speciesAndLang)
+  const finishedProduct = completeHumanBean(peopleWithHomes, speciesAndLang)
 
   return finishedProduct
 
@@ -54,13 +50,13 @@ function fetchSpecies(people) {
   return speciesAndLang
 }
 
-function completeHumanBean(people, homeworld, species) {
+function completeHumanBean(homeworld, species) {
   const complete = homeworld.reduce((accu, world) => {
     let person = {};
     person.name = world.name
     person.homeworld = world.homeworld
     person.population = world.population
-    // person.language = species[world.name].species
+
     species.forEach((species) => {
       if (species.name === world.name) {
         person.species = species.species

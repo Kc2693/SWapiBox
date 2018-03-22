@@ -12,12 +12,15 @@ class App extends Component {
     this.state = {
       categories: {'people': false, 'planets': false, 'vehicles': false},
       favorites: [],
-      scrollText: []
+      scrollText: [],
+      people: {},
+      planets: {},
+      vehicles: {}
     }
   }
 
   async componentDidMount() {
-    if (!localStorage) {
+    if (!localStorage['filmText']) {
       await fetchFilmTexts().then(text => localStorage.setItem('filmText', JSON.stringify(text)))
     }
     this.fillScrollText()
@@ -52,7 +55,7 @@ class App extends Component {
   displayInfoContainer = () => {
     return Object.keys(this.state.categories).reduce((accu, key, index) => {
       if (this.state.categories[key]) {
-        accu.push(<InfoContainer key={index}/>)
+        accu.push(<InfoContainer key={index} categoryInfo={this.state[key]}/>)
       }
       return accu;
     }, [])
@@ -62,11 +65,27 @@ class App extends Component {
     console.log('hello!')
   }
 
-  showPeople = async () => {
-    const peoples = await fetchPeopleInfo()
+  fetchCategory = async (key) => {
+    if (!localStorage[key]) {
+      let determineButton;
+      switch (key) {
+        case 'people':
+          determineButton = await fetchPeopleInfo()
+          break;
+        case 'planets':
+          determineButton = await fetchPeopleInfo()
+          break;
+        case 'vehicles':
+          determineButton = await fetchPeopleInfo()
+          break;
+      }
+      const toStorage = await localStorage.setItem(key, JSON.stringify(determineButton))
+    }
 
-    console.log(peoples)
+    const getStorage = await JSON.parse(localStorage.getItem(key))
+    await this.setState({[key]: getStorage})
   }
+
 
   render() {
     return (
@@ -77,7 +96,7 @@ class App extends Component {
         <Button controlFunc={this.showFavorites} name={'Favorites '} id={'faves'} faveNum={this.state.favorites.length}/>
         <CategoryButtonContainer categories={Object.keys(this.state.categories)}
                                  controlFunc={this.selectCategory}
-                                 secondFunc={this.showPeople}
+                                 fetchFunc={this.fetchCategory}
         />
       {this.state.scrollText.length > 1 && <ScrollText films={this.state.scrollText}/>}
         {this.displayInfoContainer()}
