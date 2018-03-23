@@ -1,9 +1,9 @@
-.sidebar {
+.scroll-text {
   color: white;
   position: absolute;
-  bottom: -30px;
+  bottom: 20px;
   width: 100%;
-  height: 100px;
+  height: 30px;
 }
 
 .story-text {

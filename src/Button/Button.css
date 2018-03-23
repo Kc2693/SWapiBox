@@ -6,6 +6,7 @@
   border-color: var(--main-yellow);
   font-size: 20px;
   padding: 5px 10px;
+  outline: none;
   z-index: 20;
 }
 

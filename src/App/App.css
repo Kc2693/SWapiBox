@@ -5,6 +5,7 @@
     --main-yellow: #E58E58;
     --main-light-red: #9d323b;
     --main-dark-red: #6E233A;
+    --blue-overlay: rgba(18, 14, 35, 0.6);
     --button-text-color: white;
 }
 .App-container {
@@ -16,7 +17,7 @@
   background: url(https://orig00.deviantart.net/9fb6/f/2015/334/2/7/shooting_stars2_by_kirokaze-d9ikcm1.gif) no-repeat;
   background-position: 50% 0;
   position: absolute;
-  height: 100vh;
+  height: inherit;
   width: 100%;
   z-index: -10;
 }
@@ -38,6 +39,7 @@
 }
 .main-title {
   color: var(--main-yellow);
+  text-shadow: 2px 2px 5px var(--main-light-red);
   font-family: 'Audiowide', cursive;
   font-size: 50px;
   margin: auto;

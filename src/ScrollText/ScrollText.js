@@ -12,7 +12,7 @@ class ScrollText extends Component {
 
   render(props) {
     return (
-      <div className="sidebar">
+      <div className="scroll-text">
         <marquee className="story-text"
                  behavior="scroll"
                  direction="left"

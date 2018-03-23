@@ -1,7 +1,30 @@
 .info-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   color: white;
-  background-color: rgba(0, 0, 0, 0.4);
-  height: 450px;
+  background-color: var(--blue-overlay);
+  box-shadow: 0 0 10px 1px var(--main-yellow);
+  border-radius: 5px;
+  height: 330px;
   margin: auto;
+  overflow-x: auto;
   width: 90%;
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    display: none;
+    background-color: #000000;
+    padding-top: 10px;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--main-yellow);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track-piece {
+  display: none;
+  background-color: #000000;
 }

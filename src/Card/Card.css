@@ -1,0 +1,15 @@
+.card {
+  color: var(--main-yellow);
+  width: 200px;
+  height: 100px;
+  background-color: var(--main-dark-red);
+  padding-top: 10px;
+  margin: 5px;
+  text-align: center;
+}
+.card h1 {
+  font-size: 14px;
+}
+.card h5 {
+  font-size: 12px;
+}

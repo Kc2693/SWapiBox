@@ -4,7 +4,8 @@ import ScrollText from '../ScrollText/ScrollText';
 import Button from '../Button/Button';
 import CategoryButtonContainer from '../categoryButtonContainer/categoryButtonContainer'
 import InfoContainer from '../InfoContainer/InfoContainer';
-import { fetchFilmTexts, fetchPeopleInfo } from '../API/helper';
+import { fetchFilmTexts, fetchPeopleInfo } from '../API/peopleDataCleaner';
+import fetchPlanetInfo from '../API/planetDatacleaner';
 
 class App extends Component {
   constructor (props) {
@@ -13,9 +14,9 @@ class App extends Component {
       categories: {'people': false, 'planets': false, 'vehicles': false},
       favorites: [],
       scrollText: [],
-      people: {},
-      planets: {},
-      vehicles: {}
+      people: [],
+      planets: [],
+      vehicles: []
     }
   }
 
@@ -73,7 +74,7 @@ class App extends Component {
           determineButton = await fetchPeopleInfo()
           break;
         case 'planets':
-          determineButton = await fetchPeopleInfo()
+          determineButton = await fetchPlanetInfo()
           break;
         case 'vehicles':
           determineButton = await fetchPeopleInfo()
@@ -83,6 +84,7 @@ class App extends Component {
     }
 
     const getStorage = await JSON.parse(localStorage.getItem(key))
+
     await this.setState({[key]: getStorage})
   }
 
@@ -99,7 +101,7 @@ class App extends Component {
                                  fetchFunc={this.fetchCategory}
         />
       {this.state.scrollText.length > 1 && <ScrollText films={this.state.scrollText}/>}
-        {this.displayInfoContainer()}
+        {this.state.categories.people && this.displayInfoContainer()}
 
       </div>
       </div>

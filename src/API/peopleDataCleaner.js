@@ -1,4 +1,4 @@
-const root = `https://swapi.co/api/`;
+import root from './rootUrl';
 const films = `films`
 const people = `people/`
 
@@ -17,10 +17,9 @@ async function fetchPeopleInfo() {
   const peopleWithHomes = await fetchHomeworld(response.results)
   const speciesAndLang = await fetchSpecies(response.results)
 
-  const finishedProduct = completeHumanBean(peopleWithHomes, speciesAndLang)
+  const cleanPeopleData = completeHumanBean(peopleWithHomes, speciesAndLang)
 
-  return finishedProduct
-
+  return cleanPeopleData
 }
 
 function fetchHomeworld(people) {
