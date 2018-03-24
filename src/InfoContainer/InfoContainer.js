@@ -4,8 +4,6 @@ import './Info-Container.css';
 
 
 const InfoContainer = (props) => {
-  const info = props.categoryInfo
-  // console.log(info)
   const displayCards = props.categoryInfo.map((item, index) => {
     return <Card info={item} key={index}/>
   })
