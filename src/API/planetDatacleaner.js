@@ -14,22 +14,36 @@ async function fetchPlanetInfo() {
 
   const organizeData = await organizePlanetaryData(response.results);
 
+  console.log("now we are here", organizeData);
   return organizeData;
 }
 
+async function fetchResidents(residentsArray) {
+  const residents = residentsArray.map(async (person) => {
+
+    const initFetch = await fetch(person);
+    const response = await initFetch.json();
+    const resident = response.name;
+
+    return resident;
+  })
+
+  return Promise.all(residents)
+}
+
 function organizePlanetaryData(planets) {
-  return planets.reduce((accu, planet) => {
-    let cleanPlanet = {};
+  const cleaned = planets.map(async (planet) => {
+    const residents = await fetchResidents(planet.residents)
 
-    cleanPlanet.name = planet.name;
-    cleanPlanet.terrain = planet.terrain;
-    cleanPlanet.climate = planet.climate;
-    cleanPlanet.population = planet.population;
-
-    accu.push(cleanPlanet);
-
-    return accu;
-  }, [])
+    return {
+      name: planet.name,
+      terrain: planet.terrain,
+      climate: planet.climate,
+      population: planet.population,
+      residents: residents
+    };
+  })
+  return Promise.all(cleaned);
 }
 
 export default fetchPlanetInfo;

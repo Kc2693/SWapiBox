@@ -80,7 +80,7 @@ class App extends Component {
           determineButton = await fetchPeopleInfo()
           break;
       }
-      const toStorage = await localStorage.setItem(key, JSON.stringify(determineButton))
+      await localStorage.setItem(key, JSON.stringify(determineButton))
     }
 
     const getStorage = await JSON.parse(localStorage.getItem(key))
