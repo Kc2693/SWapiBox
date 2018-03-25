@@ -6,6 +6,7 @@ import CategoryButtonContainer from '../categoryButtonContainer/categoryButtonCo
 import InfoContainer from '../InfoContainer/InfoContainer';
 import { fetchFilmTexts, fetchPeopleInfo } from '../API/peopleDataCleaner';
 import fetchPlanetInfo from '../API/planetDatacleaner';
+import fetchVehicleInfo from '../API/vehicleDataCleaner';
 
 class App extends Component {
   constructor (props) {
@@ -50,11 +51,12 @@ class App extends Component {
 
         this.setState({categories: newState})
       }
-    })
+    });
   };
 
   displayInfoContainer = () => {
     return Object.keys(this.state.categories).reduce((accu, key, index) => {
+
       if (this.state.categories[key]) {
         accu.push(<InfoContainer key={index} categoryInfo={this.state[key]}/>)
       }
@@ -77,7 +79,7 @@ class App extends Component {
           determineButton = await fetchPlanetInfo()
           break;
         case 'vehicles':
-          determineButton = await fetchPeopleInfo()
+          determineButton = await fetchVehicleInfo()
           break;
       }
       await localStorage.setItem(key, JSON.stringify(determineButton))
@@ -92,18 +94,17 @@ class App extends Component {
   render() {
     return (
       <div className="App-container">
-      <div className="Background"></div>
-      <div className="Foreground">
-        <h1 className="main-title">SWapiBox</h1>
-        <Button controlFunc={this.showFavorites} name={'Favorites '} id={'faves'} faveNum={this.state.favorites.length}/>
-        <CategoryButtonContainer categories={Object.keys(this.state.categories)}
+        <div className="Background"></div>
+        <div className="Foreground">
+          <h1 className="main-title">SWapiBox</h1>
+          <Button controlFunc={this.showFavorites} name={'Favorites '} id={'faves'} faveNum={this.state.favorites.length}/>
+          <CategoryButtonContainer categories={Object.keys(this.state.categories)}
                                  controlFunc={this.selectCategory}
                                  fetchFunc={this.fetchCategory}
-        />
-      {this.state.scrollText.length > 1 && <ScrollText films={this.state.scrollText}/>}
-        {this.state.categories.people && this.displayInfoContainer()}
-
-      </div>
+          />
+          {this.state.scrollText.length > 1 && <ScrollText films={this.state.scrollText}/>}
+          {this.displayInfoContainer()}
+        </div>
       </div>
     );
   }
