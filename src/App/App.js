@@ -23,9 +23,14 @@ class App extends Component {
 
   async componentDidMount() {
     if (!localStorage['filmText']) {
-      await fetchFilmTexts().then(text => localStorage.setItem('filmText', JSON.stringify(text)))
+      const fetch = await fetchFilmTexts();
+      await this.putTextInStorage(fetch);
     }
     this.fillScrollText()
+  }
+
+  putTextInStorage(filmText) {
+    localStorage.setItem('filmText', JSON.stringify(filmText))
   }
 
   fillScrollText() {
@@ -58,14 +63,13 @@ class App extends Component {
     return Object.keys(this.state.categories).reduce((accu, key, index) => {
 
       if (this.state.categories[key]) {
-        accu.push(<InfoContainer key={index} categoryInfo={this.state[key]}/>)
+        accu.push(<InfoContainer key={index}
+                                 categoryInfo={this.state[key]}
+                                 faveCard={this.favoriteCard}
+                  />)
       }
       return accu;
     }, [])
-  }
-
-  showFavorites = () => {
-    console.log('hello!')
   }
 
   fetchCategory = async (key) => {
@@ -81,6 +85,8 @@ class App extends Component {
         case 'vehicles':
           determineButton = await fetchVehicleInfo()
           break;
+        default:
+          return;
       }
       await localStorage.setItem(key, JSON.stringify(determineButton))
     }
@@ -90,6 +96,13 @@ class App extends Component {
     await this.setState({[key]: getStorage})
   }
 
+  favoriteCard = (card) => {
+
+  }
+
+  showFavorites = (event) => {
+    console.log('hello!')
+  };
 
   render() {
     return (

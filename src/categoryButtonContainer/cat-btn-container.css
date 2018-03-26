@@ -1,3 +1,6 @@
 .buttons-container {
   margin: 20px auto;
 }
+.selected-btn {
+  background-color: #ff0066;
+}

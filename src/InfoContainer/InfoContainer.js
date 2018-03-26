@@ -5,7 +5,7 @@ import './Info-Container.css';
 
 const InfoContainer = (props) => {
   const displayCards = props.categoryInfo.map((item, index) => {
-    return <Card info={item} key={index}/>
+    return <Card info={item} key={index} faveCard={props.faveCard}/>
   })
 
   return (
