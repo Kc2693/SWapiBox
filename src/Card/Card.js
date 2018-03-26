@@ -14,7 +14,7 @@ const Card = (props) => {
 
   return (
     <div className="card">
-      <button className="fave-btn"></button>
+      <button className="fave-btn" onClick={props.faveCard()}></button>
       <h1>{props.info.name}</h1>
       {displayContents}
     </div>

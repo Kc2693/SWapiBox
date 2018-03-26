@@ -6,6 +6,7 @@
   border-color: var(--main-yellow);
   font-size: 20px;
   padding: 5px 10px;
+  text-decoration: none;
   outline: none;
   z-index: 20;
 }
@@ -14,16 +15,19 @@
   color: var(--main-yellow);
   background-color: var(--main-dark-red);
 }
-#category-button:active {
-  color: var(--main-yellow);
-  background-color: var(--main-dark-red);
-}
 
 #faves {
   font-size: 24px;
   background-color: var(--main-light-red);
+  border-radius: 5px;
   color: var(--button-text-color);
+  padding: 5px 10px;
   position: absolute;
+  text-decoration: none;
   right: 10px;
   top: 10px;
+}
+.selected {
+  text-decoration: none;
+  color: #ff0066;
 }

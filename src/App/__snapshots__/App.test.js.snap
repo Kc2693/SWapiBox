@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App
+    fetchFilmTexts={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="Background"
+/>,
+        <div
+          className="Foreground"
+>
+          <h1
+                    className="main-title"
+          >
+                    SWapiBox
+          </h1>
+          <Button
+                    controlFunc={[Function]}
+                    faveNum={0}
+                    id="faves"
+                    name="Favorites "
+          />
+          <categoryButtonContainer
+                    categories={
+                              Array [
+                                        "people",
+                                        "planets",
+                                        "vehicles",
+                                      ]
+                    }
+                    controlFunc={[Function]}
+                    fetchFunc={[Function]}
+          />
+</div>,
+      ],
+      "className": "App-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "Background",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1
+              className="main-title"
+>
+              SWapiBox
+</h1>,
+            <Button
+              controlFunc={[Function]}
+              faveNum={0}
+              id="faves"
+              name="Favorites "
+/>,
+            <categoryButtonContainer
+              categories={
+                            Array [
+                                          "people",
+                                          "planets",
+                                          "vehicles",
+                                        ]
+              }
+              controlFunc={[Function]}
+              fetchFunc={[Function]}
+/>,
+            false,
+            Array [],
+          ],
+          "className": "Foreground",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "SWapiBox",
+              "className": "main-title",
+            },
+            "ref": null,
+            "rendered": "SWapiBox",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "controlFunc": [Function],
+              "faveNum": 0,
+              "id": "faves",
+              "name": "Favorites ",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "categories": Array [
+                "people",
+                "planets",
+                "vehicles",
+              ],
+              "controlFunc": [Function],
+              "fetchFunc": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          false,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="Background"
+/>,
+          <div
+            className="Foreground"
+>
+            <h1
+                        className="main-title"
+            >
+                        SWapiBox
+            </h1>
+            <Button
+                        controlFunc={[Function]}
+                        faveNum={0}
+                        id="faves"
+                        name="Favorites "
+            />
+            <categoryButtonContainer
+                        categories={
+                                    Array [
+                                                "people",
+                                                "planets",
+                                                "vehicles",
+                                              ]
+                        }
+                        controlFunc={[Function]}
+                        fetchFunc={[Function]}
+            />
+</div>,
+        ],
+        "className": "App-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "Background",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h1
+                className="main-title"
+>
+                SWapiBox
+</h1>,
+              <Button
+                controlFunc={[Function]}
+                faveNum={0}
+                id="faves"
+                name="Favorites "
+/>,
+              <categoryButtonContainer
+                categories={
+                                Array [
+                                                "people",
+                                                "planets",
+                                                "vehicles",
+                                              ]
+                }
+                controlFunc={[Function]}
+                fetchFunc={[Function]}
+/>,
+              false,
+              Array [],
+            ],
+            "className": "Foreground",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "SWapiBox",
+                "className": "main-title",
+              },
+              "ref": null,
+              "rendered": "SWapiBox",
+              "type": "h1",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "controlFunc": [Function],
+                "faveNum": 0,
+                "id": "faves",
+                "name": "Favorites ",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "categories": Array [
+                  "people",
+                  "planets",
+                  "vehicles",
+                ],
+                "controlFunc": [Function],
+                "fetchFunc": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            false,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
+}
+`;
